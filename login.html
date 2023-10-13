@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h2>Login</h2>
+            <input type="text" name="name" id="name" placeholder="Enter the name">
+            <input type="tel" name="phno" id="ph" placeholder="Enter phno">
+            <button type="submit">LOGIN</button>
+    </form>
+
+    <script>
+        let form=document.querySelector("form");
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            let uname=document.getElementById("uname");
+            let phno=document.getElementById("ph");
+            
+            let lname=localStorage.getItem("uname");
+            let lphno=localStorage.getItem("phone");
+
+            if(uname=="" && phno==""){
+                alert("Credentials should not be empty")
+            }else if(uname==""){
+                alert("User name cannot be empty")
+            }else if(phno==""){
+                alert("Phno cannot be empty")
+            }else if(uname!=lname && phno!=lphno){
+                alert("Wrong credentials");
+            }else if(uname==lname && phno==lphno){
+                alert("Successfully Login........!");
+                open("./home.html")
+            }else{
+                alert("Failed......!")
+            }
+        })
+    </script>
+</body>
+</html>
